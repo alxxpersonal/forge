@@ -17,9 +17,6 @@ Forge is a toolkit of **battle-tested skills, prompts, and agent configurations*
 # All skills (works with Claude Code, Cursor, Copilot, Codex, 40+ agents)
 npx skills add https://github.com/alxxpersonal/forge
 
-# Specific skill
-npx skills add https://github.com/alxxpersonal/forge --skill claude-md-forge
-
 # Or manual
 git clone https://github.com/alxxpersonal/forge.git
 ln -s $(pwd)/forge/skills/* ~/.claude/skills/
