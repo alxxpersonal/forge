@@ -32,6 +32,7 @@ ln -s $(pwd)/forge/skills/* ~/.claude/skills/
 | [claude-md-forge](skills/claude-md-forge) | Optimized CLAUDE.md and .claude/ infrastructure |
 | [skill-forge](skills/skill-forge) | Skills for any LLM agent tool |
 | [readme-forge](skills/readme-forge) | READMEs in a consistent, dense style |
+| [commit-forge](skills/commit-forge) | Clean, atomic git commits with conventional format |
 
 </details>
 
