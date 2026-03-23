@@ -1,7 +1,6 @@
 ---
 name: claude-headless
 description: Build custom UIs on top of Claude Code's headless mode. Covers spawning, NDJSON protocol, permission hooks, and session management. Use when building a desktop app, TUI, web UI, or any custom interface that wraps Claude Code as a subprocess.
-disable-model-invocation: true
 ---
 
 # Claude Headless
