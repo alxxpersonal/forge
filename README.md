@@ -34,6 +34,7 @@ ln -s $(pwd)/forge/skills/* ~/.claude/skills/
 | [readme-forge](skills/readme-forge) | READMEs in a consistent, dense style |
 | [commit-forge](skills/commit-forge) | Clean, atomic git commits with conventional format |
 | [prompt-forge](skills/prompt-forge) | Universal prompt engineering guide for Claude and GPT |
+| [claude-headless](skills/claude-headless) | Build custom UIs on Claude Code's headless NDJSON protocol |
 
 </details>
 
