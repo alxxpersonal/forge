@@ -43,6 +43,10 @@ ln -s $(pwd)/forge/skills/* ~/.claude/skills/
 
 Production-grade skills for the entire [charmbracelet](https://github.com/charmbracelet) Go TUI ecosystem. Built by reading actual v2 source code - real API, real patterns, no hallucinated functions.
 
+| Skill | Description |
+|-------|-------------|
+| [charm-ecosystem](skills/charm-ecosystem) | Architect's guide - which libraries to combine, decision tree, integration cookbook |
+
 **Libraries:**
 
 | Skill | Description |
