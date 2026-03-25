@@ -35,6 +35,7 @@ ln -s $(pwd)/forge/skills/* ~/.claude/skills/
 | [commit-forge](skills/commit-forge) | Clean, atomic git commits with conventional format |
 | [prompt-forge](skills/prompt-forge) | Universal prompt engineering guide for Claude and GPT |
 | [claude-headless](skills/claude-headless) | Build custom UIs on Claude Code's headless NDJSON protocol |
+| [exo-teams](skills/exo-teams) | Microsoft Teams CLI automation - messages, files, assignments, no admin consent |
 
 </details>
 
