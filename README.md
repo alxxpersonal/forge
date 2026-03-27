@@ -48,6 +48,7 @@ Production-grade skills for the entire [charmbracelet](https://github.com/charmb
 | Skill | Description |
 |-------|-------------|
 | [charm-ecosystem](skills/charm-ecosystem) | Architect's guide - which libraries to combine, decision tree, integration cookbook |
+| [charm-crush](skills/charm-crush) | Production TUI patterns reverse-engineered from Crush - architecture, agent loop, design system |
 
 **Libraries:**
 
