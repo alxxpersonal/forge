@@ -8,6 +8,10 @@ disable-model-invocation: false
 
 Routing reference for picking the right model and the right git strategy. Consult before any subagent dispatch or non-trivial change.
 
+## Critical Rule
+
+**ALWAYS run subagents in background (`run_in_background: true`) UNLESS the user explicitly asks for foreground.** The main thread stays unblocked, the user can keep working, and long-running dispatches don't freeze the conversation. Foreground subagents are the exception, not the default.
+
 ## Model Capability Matrix
 
 ### claude-opus-4-6
