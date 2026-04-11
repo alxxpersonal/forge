@@ -36,6 +36,7 @@ ln -s $(pwd)/forge/skills/* ~/.claude/skills/
 | [prompt-forge](skills/prompt-forge) | Universal prompt engineering guide for Claude and GPT |
 | [claude-headless](skills/claude-headless) | Build custom UIs on Claude Code's headless NDJSON protocol |
 | [exo-teams](skills/exo-teams) | Microsoft Teams CLI automation - messages, files, assignments, no admin consent |
+| [model-forge](skills/model-forge) | Pick the right model (opus/sonnet/haiku/codex) and git strategy (direct/feat/worktree) for any task |
 
 </details>
 
