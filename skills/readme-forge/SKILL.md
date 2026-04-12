@@ -1,7 +1,7 @@
 ---
 name: readme-forge
 description: Generate a README in alxx's personal style. Use when user says "write a README", "create README", "readme for this project", "update README", or needs a repo README.
-disable-model-invocation: true
+disable-model-invocation: false
 argument-hint: "[repo path or leave blank for current]"
 ---
 
