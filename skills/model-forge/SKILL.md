@@ -47,11 +47,11 @@ Fastest and cheapest. Capable enough for mechanical work.
 - Generating structured metadata from raw input
 - Bulk context gathering across many files
 
-### gpt-5.4-codex (via codex plugin)
+### gpt-5.4 (via codex plugin)
 Adversarial engineer with different priors than claude. Mechanically excellent on focused tasks, brittle on vague ones. Extremely slow.
 **Speed/cost:** ~30x slower than sonnet (10 min vs 18s in real tests). 3-4x fewer tokens than claude on comparable work. ChatGPT Plus = 30-150 msgs/5hr window.
 **Benchmarks:** terminal-bench 77.3% vs claude 65.4%. Debate mode (claude + codex) bug detection jumps 53% → 80%.
-**IMPORTANT:** Always pass `--model gpt-5.4-codex` (or `model: "gpt-5.4-codex"` in subagent config). Default model selection is unreliable - lock it explicitly every time.
+**IMPORTANT:** Always pass `--model gpt-5.4` (or `model: "gpt-5.4"` in subagent config). Default model selection is unreliable - lock it explicitly every time.
 **Use for:**
 - Adversarial code review (highest-ROI use case - independent priors catch what claude misses)
 - Focused bug fixes with a clear spec and acceptance criteria
@@ -89,7 +89,7 @@ Adversarial engineer with different priors than claude. Mechanically excellent o
 
 **Always:**
 - Run subagents in background (`run_in_background: true`) so the main thread stays unblocked
-- Lock codex model explicitly to `gpt-5.4-codex` on every invocation
+- Lock codex model explicitly to `gpt-5.4` on every invocation
 - Send parallel dispatches in a single message, not sequential calls
 
 **Never:**
@@ -193,7 +193,7 @@ What doesn't work:
 5. **Big refactors on main** - hard rollback, polluted history
 6. **Parallel agents on same files without worktrees** - concurrent write conflicts
 7. **Dispatching codex synchronously** - always background, never wait
-8. **Forgetting `--model gpt-5.4-codex`** - default selection is unreliable
+8. **Forgetting `--model gpt-5.4`** - default selection is unreliable
 9. **Codex for UI work** - zero taste, no visual judgment, will produce bricks
 10. **Codex when you need to discuss/brainstorm** - it's a one-shot executor, not a collaborator
 
