@@ -1,6 +1,6 @@
 ---
 name: prompt-forge
-description: Universal prompt engineering guide for writing, reviewing, and optimizing LLM prompts across Claude and OpenAI models. Use when writing system prompts, designing extraction pipelines, building classification or summarization prompts, optimizing for cost/latency, reviewing existing prompts for quality, or any task involving prompt design for production AI systems. Trigger on keywords like "prompt", "system prompt", "few-shot", "extraction prompt", "prompt engineering", "prompt review", or when the user is building any AI-powered feature that needs a well-crafted prompt.
+description: "Write, review, and optimize LLM prompts across Claude and OpenAI models - design extraction pipelines, build classification or summarization prompts, optimize for cost/latency, and audit existing prompts for quality. Use when writing system prompts, designing extraction pipelines, building classification or summarization prompts, or reviewing prompts. Trigger on 'prompt', 'system prompt', 'few-shot', 'extraction prompt', 'prompt engineering', 'prompt review'. NOT for general AI application architecture or LLM integration plumbing."
 ---
 
 # Prompt Forge
@@ -13,9 +13,9 @@ For SDK code examples and implementation patterns, read `references/code-pattern
 
 1. **Be Explicit, Not Implicit.** Treat every prompt like onboarding a new hire - spell out role, task, constraints, output format, and edge cases.
 
-2. **Structure Beats Prose.** Structured prompts with clear sections outperform wall-of-text instructions. Use XML tags for Claude, markdown headers or XML for GPT.
+2. **Structure Beats Prose.** Use XML tags for Claude, markdown headers or XML for GPT.
 
-3. **Show, Don't Just Tell.** Few-shot examples are the single highest-leverage technique. 3-5 examples covering happy paths and edge cases. With prompt caching, afford 20+.
+3. **Show, Don't Just Tell.** 3-5 few-shot examples covering happy paths and edge cases. With prompt caching, afford 20+.
 
 4. **Constrain the Output Space.** Define exactly what success looks like. Schemas, templates, or format specs. Tighter output contract = more reliable results.
 
@@ -23,7 +23,7 @@ For SDK code examples and implementation patterns, read `references/code-pattern
 
 6. **Positive Instructions Over Negative.** "Write in plain prose paragraphs" beats "Don't use markdown". Tell the model what TO do.
 
-7. **Order Matters.** Place long documents ABOVE instructions. Place critical instructions at beginning and end (primacy and recency effects).
+7. **Order Matters.** Place long documents ABOVE instructions. Place critical instructions at beginning and end.
 
 ## Prompt Section Ordering
 
@@ -42,12 +42,6 @@ System prompts are not monolithic strings. They are ordered arrays of sections. 
 9. **Environment context** - runtime info (CWD, platform, model ID, date)
 10. **User instructions** - user-provided rules (config files, overrides)
 11. **Memory** - persistent cross-session context
-
-**Why this order works:**
-- Static sections first = cacheable prefix (cache matches prefixes)
-- Identity and rules before tools = model internalizes constraints before seeing capabilities
-- User instructions AFTER defaults but marked as overrides = user can override any default
-- Dynamic sections last = only the tail changes between turns, maximizing cache hits
 
 **User instruction override pattern:**
 ```
@@ -131,18 +125,6 @@ Preprocess inputs: strip signatures, disclaimers, HTML, whitespace. Set max_char
 ### Code Generation
 Role + `<conventions>` (existing patterns, stack, style) + `<rules>` (scope tightly, error handling, follow patterns) + `<context>` (relevant existing code).
 
-### Multi-Step Reasoning (ReAct)
-```
-For each step:
-1. THOUGHT: reason about what information you need
-2. ACTION: call the appropriate tool
-3. OBSERVATION: analyze the result
-4. Repeat until you have enough to answer
-5. ANSWER: provide the final response
-```
-
-Use Claude's extended thinking or GPT's reasoning_effort for complex reasoning rather than forcing CoT when the model natively supports it.
-
 ### Agent Delegation
 Subagents should NOT inherit the full parent prompt. Strip to: identity, task scope, constraints, environment. For full patterns, read `references/agentic-patterns.md`.
 
@@ -191,6 +173,14 @@ Build confidence tracking into schemas: per-field confidence (HIGH/MEDIUM/LOW/MI
 - **Model tiering:** Haiku/GPT-none for high-volume extraction, Sonnet/GPT-medium for complex, Opus/GPT-high for strategy
 
 - **Batch API:** 50% discount for non-realtime workloads (both providers)
+
+## Development Workflow
+
+1. **Draft** - define role, rules, output format, and examples using the patterns above
+2. **Test** - run against 5+ real inputs covering happy path, edge cases, and malformed input
+3. **Evaluate** - score outputs against expected results, identify weak fields or failure modes
+4. **Iterate** - add examples targeting weak spots, tighten constraints, adjust model tier
+5. **Ship** - enable caching, configure model tiering, set up monitoring
 
 ## Prompt Checklist
 

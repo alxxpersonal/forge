@@ -1,6 +1,6 @@
 ---
 name: skill-forge
-description: Write or improve an LLM agent skill. Use when user says "create skill", "write a skill", "improve this skill", "new skill", "skill for X", or wants to build a SKILL.md file.
+description: "Write or improve an LLM agent skill - generate YAML frontmatter, define trigger conditions, structure step-by-step instructions, and validate against best practices. Use when user says 'create skill', 'write a skill', 'improve this skill', 'new skill', 'skill for X', or wants to build a SKILL.md file."
 disable-model-invocation: true
 argument-hint: "[skill name or path to existing SKILL.md]"
 ---
@@ -70,8 +70,6 @@ description: ...          # THE most important field. See below.
 **Key insight:** with `disable-model-invocation: true`, the description is NOT in context at all. Don't over-optimize the description - write it for your own docs reference only.
 
 ## Step 4: Write the Description
-
-The description is what Claude pattern-matches against to decide whether to load the skill. There is NO algorithmic routing - Claude's language model reads all descriptions and semantically matches.
 
 ### Formula
 
@@ -165,13 +163,3 @@ Run this checklist on the generated skill:
 - [ ] Steps are numbered when order matters
 - [ ] Supporting files referenced if body would exceed 500 lines
 
-## Common Mistakes
-
-1. **Vague descriptions** - "Use when user wants to plan" triggers on everything
-2. **Missing `disable-model-invocation: true` on side-effect skills** - Claude will auto-commit, auto-deploy
-3. **Body too long** - 500+ lines burns context. Split into supporting files.
-4. **Redundant description + body** - description matches, body instructs. Don't duplicate.
-5. **`context: fork` on reference content** - subagent gets instructions with no actionable task
-6. **Over-explaining in description** - the description isn't the instructions
-7. **Missing NOT conditions** - for behavioral modes, add explicit "NEVER activate unless..."
-8. **`user-invocable: false` on things users should manually trigger** - confusing

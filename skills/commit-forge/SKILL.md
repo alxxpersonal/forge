@@ -121,30 +121,3 @@ git show --stat
 
 Confirm the commit looks right.
 
-## What Makes a Good Commit
-
-| Good | Bad |
-|------|-----|
-| One logical change | Multiple unrelated changes |
-| All tests pass | Breaks something |
-| Message says why | Message says "update stuff" |
-| Can be reverted cleanly | Reverting would break other things |
-| Specific files staged | `git add .` |
-
-## What Makes a Bad Commit Message
-
-- "fix stuff" / "update" / "changes" / "WIP"
-- Using "and" to describe two unrelated things
-- Describing how instead of what/why
-- Over 72 characters in the subject line
-
-## Checklist
-
-Before committing:
-
-- [ ] Changes are atomic (one logical unit)
-- [ ] Specific files staged (not `git add .`)
-- [ ] Tests pass (if applicable)
-- [ ] Message follows `type(scope): description` format
-- [ ] No co-author tags
-- [ ] No sensitive files staged (.env, credentials, keys)
