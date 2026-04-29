@@ -1,6 +1,6 @@
 ---
 name: readme-forge
-description: Generate a README in alxx's personal style. Use when user says "write a README", "create README", "readme for this project", "update README", or needs a repo README.
+description: "Generate a README with project overview, quickstart, features, and architecture diagram in alxx's personal style. Use when user says 'write a README', 'create README', 'readme for this project', 'update README', or needs a repo README."
 disable-model-invocation: false
 argument-hint: "[repo path or leave blank for current]"
 ---
@@ -112,22 +112,12 @@ One line linking to LICENSE file. e.g. `[MIT](LICENSE)`
 
 These are non-negotiable:
 
-- **h1 or banner** - either `# Name` or full-width banner image with `---` separator
-- **Bold tagline** directly under h1/banner, no gap
-- **Overview** - first section is always Overview. use 🚀 emoji only when banner is present, plain `## Overview` otherwise
-- **Blockquote pitch** for the audience, in or after overview
-- **Bold analogy** in overview (comparing to something familiar)
-- **Bold italic** (`***text***`) for punchy one-liners
-- **Bold feature names** with dash separator in features list
-- **Mermaid diagram** - always include one, flowchart LR preferred
 - **Quickstart must be copy-paste** - someone should be able to run every command in order
-- **FAQ is optional** - rarely used, only include for projects with common objections (e.g. "why not X?"). if something needs explaining, prefer putting it in the relevant section
 - **No badges** unless the project has CI set up
-- **Bold key phrases in longer text** - in paragraphs, `**bold**` the important terms/concepts so readers can scan (e.g. "Nebula is **Git for agent context & tasks**")
+- **Bold key phrases in longer text** - `**bold**` important terms so readers can scan
 - **Dense, no fluff** - every sentence carries information
 - **No "Getting Started" header** - use "Quickstart" for apps/CLIs, "Install" for packages/skills/libraries
-- **No separate "Installation" header** - fold into Quickstart or Install
-- **No "Usage" header** - fold into Quickstart or Features
+- **No separate "Installation" or "Usage" headers** - fold into Quickstart or Features
 - **No long dashes** - never use "—" (em dash), use "-" or commas instead
 - **No AI slop** - no "furthermore", "it's worth noting", "comprehensive"
 - **Casual but professional** - not corporate, not too informal for a repo README
