@@ -1,7 +1,6 @@
 ---
 name: skill-forge
 description: Write or improve an LLM agent skill. Use when user says "create skill", "write a skill", "improve this skill", "new skill", "skill for X", or wants to build a SKILL.md file.
-disable-model-invocation: true
 argument-hint: "[skill name or path to existing SKILL.md]"
 ---
 
